@@ -152,7 +152,6 @@ LoadMetatiles::
 	add hl, hl
 	add hl, hl
 	add hl, hl
-	add hl, hl
 	ld a, [wTilesetBlocksAddress]
 	add l
 	ld l, a
