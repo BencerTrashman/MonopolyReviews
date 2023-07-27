@@ -3,6 +3,9 @@
 	const OAKSLAB_SCIENTIST1
 	const OAKSLAB_SCIENTIST2
 	const OAKSLAB_SCIENTIST3
+	const OAKSLAB_POKE_BALL1
+	const OAKSLAB_POKE_BALL2
+	const OAKSLAB_POKE_BALL3
 
 OaksLab_MapScripts:
 	def_scene_scripts
@@ -254,6 +257,145 @@ OaksLabPCText:
 	line "TOWN 8-)"
 	done
 
+CharmanderPokeBallScript:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue LookAtOakPokeBallScript
+	turnobject OAKSLAB_OAK, DOWN
+	refreshscreen
+	pokepic CHARMANDER
+	cry CHARMANDER
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeCharmanderText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear OAKSLAB_POKE_BALL1
+	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, CHARMANDER
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke CHARMANDER, 5, BERRY
+	closetext
+	end ;----TEMPORARY END
+
+SquirtlePokeBallScript:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue LookAtOakPokeBallScript
+	turnobject OAKSLAB_OAK, DOWN
+	refreshscreen
+	pokepic SQUIRTLE
+	cry SQUIRTLE
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeSquirtleText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear OAKSLAB_POKE_BALL2
+	setevent EVENT_GOT_TOTODILE_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, SQUIRTLE
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke SQUIRTLE, 5, BERRY
+	closetext
+	end ;----TEMPORARY END
+
+BulbasaurPokeBallScript:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue LookAtOakPokeBallScript
+	turnobject OAKSLAB_OAK, DOWN
+	refreshscreen
+	pokepic BULBASAUR
+	cry BULBASAUR
+	waitbutton
+	closepokepic
+	opentext
+	writetext TakeBulbasaurText
+	yesorno
+	iffalse DidntChooseStarterScript
+	disappear OAKSLAB_POKE_BALL3
+	setevent EVENT_GOT_CHIKORITA_FROM_ELM
+	writetext ChoseStarterText
+	promptbutton
+	waitsfx
+	getmonname STRING_BUFFER_3, BULBASAUR
+	writetext ReceivedStarterText
+	playsound SFX_CAUGHT_MON
+	waitsfx
+	promptbutton
+	givepoke BULBASAUR, 5, BERRY
+	closetext
+	end ;----TEMPORARY END
+
+DidntChooseStarterScript:
+	writetext DidntChooseStarterText
+	waitbutton
+	closetext
+	end
+
+TakeCharmanderText:
+	text "OAK: You'll take"
+	line "CHARMANDER, the"
+	cont "fire #MON?"
+	done
+
+TakeSquirtleText:
+	text "OAK: Do you want"
+	line "SQUIRTLE, the"
+	cont "water #MON?"
+	done
+
+TakeBulbasaurText:
+	text "OAK: So, you like"
+	line "BULBASAUR, the"
+	cont "grass #MON?"
+	done
+
+DidntChooseStarterText:
+	text "OAK: Think it over"
+	line "carefully."
+
+	para "Your partner is"
+	line "important."
+	done
+
+ChoseStarterText:
+	text "OAK: I think"
+	line "that's a great"
+	cont "#MON too!"
+	done
+
+ReceivedStarterText:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+	done
+
+LookAtOakPokeBallScript:
+	opentext
+	writetext OakPokeBallText
+	waitbutton
+	closetext
+	end
+
+OakPokeBallText:
+	text "It contains a"
+	line "#MON caught by"
+	cont "PROF.OAK."
+	done
+
 OaksLab_MapEvents:
 	db 0, 0 ; filler
 
@@ -286,3 +428,6 @@ OaksLab_MapEvents:
 	object_event  1,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant1Script, -1
 	object_event  8,  9, SPRITE_SCIENTIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant2Script, -1
 	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OaksAssistant3Script, -1
+	object_event  6,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CharmanderPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
+	object_event  7,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SquirtlePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_ELMS_LAB
+	object_event  8,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BulbasaurPokeBallScript, EVENT_CHIKORITA_POKEBALL_IN_ELMS_LAB
