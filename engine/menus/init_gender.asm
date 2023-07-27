@@ -48,9 +48,8 @@ InitGender:
 
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_WRAP | STATICMENU_DISABLE_B ; flags
-	db 2 ; items
-	db "Boy@"
-	db "Girl@"
+	db 1 ; item
+	db "Yeah@"
 
 AreYouABoyOrAreYouAGirlText:
 	text_far _AreYouABoyOrAreYouAGirlText

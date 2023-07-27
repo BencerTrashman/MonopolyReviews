@@ -33,24 +33,19 @@ RedsHouse1FBookshelf:
 	jumpstd PictureBookshelfScript
 
 RedsMomText1:
-	text "Hi!"
+	text "Good morning,"
+	line "<PLAYER>!"
 
-	para "RED's been away"
-	line "for a long time."
+	para "Don't forget to"
+	line "go out and help"
 
-	para "He hasn't called"
-	line "either, so I have"
+	para "the GURU with His"
+	line "research today."
 
-	para "no idea where he"
-	line "is or what he's"
-	cont "been doing."
+	para "Make sure to be"
+	line "home in time for"
 
-	para "They say that no"
-	line "word is proof that"
-
-	para "he's doing fine,"
-	line "but I do worry"
-	cont "about him."
+	para "dinner, though."
 	done
 
 RedsMomText2:

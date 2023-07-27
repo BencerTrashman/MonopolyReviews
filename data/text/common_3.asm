@@ -21,8 +21,8 @@ _OakText7::
 	para "with #MON"
 	line "awaits! Let's go!"
 
-	para "I'll be seeing you"
-	line "later!"
+	para "I'll be missing"
+	line "you until then!"
 	done
 
 _ClockTimeMayBeWrongText::

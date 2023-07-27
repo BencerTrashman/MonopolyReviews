@@ -661,8 +661,8 @@ _YouCantUseItInABattleText::
 	prompt
 
 _AreYouABoyOrAreYouAGirlText::
-	text "Are you a boy?"
-	line "Or are you a girl?"
+	text "Do you want to"
+	line "watch 'Fact Hunt'?"
 	done
 
 Text_BattleEffectActivate::
@@ -1524,23 +1524,26 @@ _MayRegisterItemText::
 	done
 
 _OakText1::
-	text "Hello! Sorry to"
-	line "keep you waiting!"
+	text "Overslept, eh?"
+	line "No need to worry,"
 
-	para "Welcome to the"
-	line "world of #MON!"
+	para "This message is"
+	line "pre-recorded."
 
-	para "My name is OAK."
+	para "That being said,"
+	line "'Ello, yew!"
 
-	para "People call me the"
-	line "#MON PROF."
+	para "My name is"
+	line "Guru Larry"
+	
+	para "and I welcome you"
+	line "to Fact Hunt"
 	prompt
 
 _OakText2::
-	text "This world is in-"
-	line "habited by crea-"
-	cont "tures that we call"
-	cont "#MON.@"
+	text "150 #MON that"
+	line "you can catch"
+	cont "right now!"
 	text_end
 
 _OakText3::
@@ -1550,15 +1553,16 @@ _OakText3::
 	text_end ; unreferenced
 
 _OakText4::
-	text "People and #MON"
-	line "live together by"
+	text "I've spent my"
+	line "life working on"
 
-	para "supporting each"
-	line "other."
+	para "documenting each"
+	line "and every fact"
+	cont "there is to know"
 
-	para "Some people play"
-	line "with #MON, some"
-	cont "battle with them."
+	para "about #MON."
+	line "it's hard work"
+	cont "I tell you."
 	prompt
 
 _OakText5::
@@ -1570,6 +1574,6 @@ _OakText5::
 	line "many mysteries to"
 	cont "solve."
 
-	para "That's why I study"
-	line "#MON every day."
+	para "That's why I ask"
+	line "for your help."
 	prompt
